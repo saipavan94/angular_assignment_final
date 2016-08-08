@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Chicago Crime Data</title>
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div id="main" ng-controller="ctr1">
+        <h1 class="center">Chicago Crime Data</h1>
+        <hr>
+        <datafilter ng-show="datafilter"></datafilter>
+        <temp ng-show="temp"></temp>
+        <div ng-controller="ctr2" >
+          <div ng-show="table_main" >
+        <table style="width:100%"  >
+          <tr>
+            <th>year</th>
+            <th>>$500</th>
+            <th><$500</th>
+            <th>options</th>
+          </tr>
+          <tr ng-repeat="data in values | slice:start:end">
+            <td>{{data.year}}</td>
+            <td>{{data.over}}</td>
+            <td>{{data.under}}</td>
+            <td><button ng-click="edit(data)" >Edit</button><button ng-click="delete(data.year)">Delete</button></td>
+          </tr>
+        </table>
+
+      <div class="center marg_top" >
+        <span class="left_marg" ng-repeat="page in pages track by $index"><button type="button" ng-click="click(page)">{{page}}</button></span>
+      </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="js/angular.js"></script>
+  </body>
+</html>

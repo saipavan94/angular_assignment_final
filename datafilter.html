@@ -1,0 +1,44 @@
+
+<div class="filter">
+  <label>Select a specific Year</label>
+  <select ng-model="year">
+    <option>All</option>
+    <option ng-repeat="year in values2">{{year.year}}</option>
+  </select>
+  <button class="" ng-click="search(year)">search</button>
+</div>
+<div class="filter">
+  <label>Filter Your seatch</label>
+  <select class="" ng-model="filter">
+    <option value="over">>$500</option>
+    <option value="under"><$500</option>
+  </select>
+  <input type="text" ng-model="filter_value" ng-disabled="!filter"/>
+  <label>sort the list</label>
+  <select ng-model="sort">
+    <option value="year">year</option>
+
+    <option value="over">above</option>
+    <option value="under">under</option>
+  </select>
+  <select ng-model="ord">
+    <option value="asc">asending</option>
+    <option value="des">desending</option>
+  </select>
+  <button ng-click="order(sort,ord)">sort</button>
+</div>
+<button class="year tto" ng-click="filter_search(filter,filter_value)">search</button>
+<table style="width:100%" ng-show="table_years">
+  <tr>
+    <th>year</th>
+    <th>>$500</th>
+    <th><$500</th>
+    <th>options</th>
+  </tr>
+  <tr ng-repeat="data in values | slice:start:end">
+    <td>{{data.year}}</td>
+    <td>{{data.over}}</td>
+    <td>{{data.under}}</td>
+    <td><button ng-click="edit(data)" >Edit</button><button ng-click="delete(data)">Delete</button></td>
+  </tr>
+</table>
